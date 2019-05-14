@@ -4,14 +4,17 @@ import 'openzeppelin-solidity/contracts/utils/Address.sol';
 import 'openzeppelin-solidity/contracts/drafts/Counters.sol';
 import 'openzeppelin-solidity/contracts/math/SafeMath.sol';
 import 'openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol';
-import "./Oraclize.sol";
+// import "./Oraclize.sol";
+
+ import "contracts/Oraclize.sol";
+
 
 contract Ownable {
     //  TODO's
     //  1) create a private '_owner' variable of type address with a public getter function
     // DONE w
     address private _owner;
-    function getOwner() returns (address _owner) {
+    function getOwner() public returns (address _owner) {
         return _owner;
     }
 
@@ -45,7 +48,9 @@ contract Ownable {
         // make sure the new owner is a real address
         _transferOwnership(newOwner);
         // _owner = _address;
-        emit OwnershipTransferred(_address);
+        // emit OwnershipTransferred(newOwner);
+        //         emit OwnershipTransferred(_owner, newOwner);
+
     }
      
 
@@ -600,7 +605,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         require(_exists(tokenId), "ERC721Metadata: URI set of nonexistent token");
         // strConcat(string memory _a, string memory _b)
         // _baseTokenURI + the tokenId
-        _tokenURIs[tokenId] = strConcat(_baseTokenURI , tokenId);//uri;
+        // string s = strConcat(_baseTokenURI , tokenId);//uri;
+        // _tokenURIs[tokenId] =
     }
 
 }
@@ -621,7 +627,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 
 contract CustomERC721Token is ERC721Metadata{
     // constructor (string _name, string _symbol) public {
-    constructor () public {
+    // constructor () public {
     // // Token name
     // string private _name;
 
@@ -631,7 +637,7 @@ contract CustomERC721Token is ERC721Metadata{
     // // Token baseTokenURI
     // string private _baseTokenURI;
  
-    string private constant _baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/" ;
+    // string private constant _baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/" ;
     // }
 
     function mint(address to, uint256 tokenId) public returns (bool) {
@@ -646,7 +652,8 @@ contract CustomERC721Token is ERC721Metadata{
 
         // _addTokenToAllTokensEnumeration(tokenId);
 
-        _setTokenURI( tokenId, _baseTokenURI)
+        // _setTokenURI( tokenId, _baseTokenURI);
+        
         
         return true;
     }
