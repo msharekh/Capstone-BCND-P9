@@ -9,40 +9,49 @@ import "./Oraclize.sol";
 contract Ownable {
     //  TODO's
     //  1) create a private '_owner' variable of type address with a public getter function
-    // DONE
+    // DONE w
     address private _owner;
     function getOwner() returns (address _owner) {
         return _owner;
     }
 
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
-    // DONE
+    // DONE w
     constructor () public {
         _owner = msg.sender;
-        emit ownerShip(_address);
+         emit OwnershipTransferred(address(0), _owner);
+
     }
 
     //  3) create an 'onlyOwner' modifier that throws if called by any account other than the owner.
-    // DONE
+    // DONE w
+    function isOwner() public view returns (bool) {
+        return msg.sender == _owner;
+    }
     modifier onlyOwner() {
-        require(msg.sender==_owner,"this address is not for the owner");
+        require(isOwner(),"this address is not for the owner");
         _;
     }
 
     //  4) fill out the transferOwnership function
-    // DONE
+    // DONE w
+    function _transferOwnership(address newOwner) internal {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        emit OwnershipTransferred(_owner, newOwner);
+        _owner = newOwner;
+    }
     function transferOwnership(address newOwner) public onlyOwner {
         // TODO add functionality to transfer control of the contract to a newOwner.
         // make sure the new owner is a real address
-
-        _owner = _address;
-        emit ownerShip(_address);
+        _transferOwnership(newOwner);
+        // _owner = _address;
+        emit OwnershipTransferred(_address);
     }
      
 
     //  5) create an event that emits anytime ownerShip is transfered (including in the constructor)
-    // DONE
-    event ownerShip(address _address );
+    // DONE w
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
 }
 
@@ -597,13 +606,52 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
+// DONE z
 //  1) Pass in appropriate values for the inherited ERC721Metadata contract
 //      - make the base token uri: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/
+// DONE z
+
 //  2) create a public mint() that does the following:
 //      -can only be executed by the contract owner
+// DONE z
 //      -takes in a 'to' address, tokenId, and tokenURI as parameters
+// DONE z
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
 
+contract CustomERC721Token is ERC721Metadata{
+    // constructor (string _name, string _symbol) public {
+    constructor () public {
+    // // Token name
+    // string private _name;
+
+    // // Token symbol
+    // string private _symbol;
+
+    // // Token baseTokenURI
+    // string private _baseTokenURI;
+ 
+    string private constant _baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/" ;
+    // }
+
+    function mint(address to, uint256 tokenId) public returns (bool) {
+        address owner = getOwner();
+        require(msg.sender == owner, "can only be executed by the contract owner");
+
+        require(to != address(0), "mint to the zero address");
+
+        super._mint(to, tokenId);
+
+        // _addTokenToOwnerEnumeration(to, tokenId);
+
+        // _addTokenToAllTokensEnumeration(tokenId);
+
+        _setTokenURI( tokenId, _baseTokenURI)
+        
+        return true;
+    }
+
+    
+}
 
 
