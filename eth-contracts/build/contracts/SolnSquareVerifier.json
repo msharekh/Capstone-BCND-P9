@@ -1,0 +1,133 @@
+{
+  "contractName": "SolnSquareVerifier",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.2+commit.1df8f40c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/msharekh/Development/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol\":\"SolnSquareVerifier\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/msharekh/Development/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol\":{\"keccak256\":\"0x3cf273ced9edbd2a89110e443a81caf558370998a95723b67aa2d6978bcb9f14\",\"urls\":[\"bzzr://4311d588b67a473c9b1605473a71ede2e055c68b9aa857010d3d1f6f2efce034\"]},\"contracts/ERC721Mintable.sol\":{\"keccak256\":\"0x41dda52e02c4f55fc8b3699d3bdea652bced8966afc13fce3661c6627c7570dc\",\"urls\":[\"bzzr://2d8d04b9162b98588b6a57bdd236946139d2dcc11550807199c5cc10f22b28d4\"]},\"contracts/Oraclize.sol\":{\"keccak256\":\"0xe5ebe286b4624095629f76c6ac8dbad3cb305fbdb43fff09e4eebed35a05b49c\",\"urls\":[\"bzzr://f48ebdff8df1cabbd7749c5eb818a6c54a6ba92956a850736bdcfbc9f53f9ffd\"]},\"openzeppelin-solidity/contracts/drafts/Counters.sol\":{\"keccak256\":\"0x982e18d2e3df98e3339f70f955a4d1fb78411a29963d0ea34621759eef67e86d\",\"urls\":[\"bzzr://a5438906da44343a09c6b47666d3649f269d9d156f2109e147e21595b2284363\"]},\"openzeppelin-solidity/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xc2a200a877c4a9b2475c246c54ffecc69ffde3e11af83319c63c2dc5458bac80\",\"urls\":[\"bzzr://c8876e2c39b60f155d748d71d715c8f3903fae5a405ac599adcb6ad2f9a583f9\"]},\"openzeppelin-solidity/contracts/token/ERC721/IERC721Receiver.sol\":{\"keccak256\":\"0xeb8a266ef2da0aa60eea704031902ffd28b2d13dd0e8f5b69bcfb8415f2dad85\",\"urls\":[\"bzzr://393e9843d41c0652f115378cc58083c4acc4d83f7999fe22932d5e237c215d3f\"]},\"openzeppelin-solidity/contracts/utils/Address.sol\":{\"keccak256\":\"0xea16b9933153c647242ba50b3e494fb133063d49f1fa81823f35a8c28754142e\",\"urls\":[\"bzzr://aa2b2eb534149525e194341c01cadf666668a1b7d679a268d10e23570a7e26b1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603580601d6000396000f3fe6080604052600080fdfea165627a7a72305820f3b4b764ee34320fcbcfbe119eab956f51ae086a5803e4498856fa0d73b94e4a0029",
+  "deployedBytecode": "0x6080604052600080fdfea165627a7a72305820f3b4b764ee34320fcbcfbe119eab956f51ae086a5803e4498856fa0d73b94e4a0029",
+  "sourceMap": "277:33:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;277:33:3;;;;;;;",
+  "deployedSourceMap": "277:33:3:-;;;;;",
+  "source": "pragma solidity ^0.5.0;\n\n\nimport \"contracts/ERC721Mintable.sol\";\n// TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>\n\n\n\n// TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class\ncontract SolnSquareVerifier  {\n\n}\n \n\n// TODO define a solutions struct that can hold an index & an address\n\n\n// TODO define an array of the above struct\n\n\n// TODO define a mapping to store unique solutions submitted\n\n\n\n// TODO Create an event to emit when a solution is added\n\n\n\n// TODO Create a function to add the solutions to the array and emit the event\n\n\n\n// TODO Create a function to mint new NFT only after the solution has been verified\n//  - make sure the solution is unique (has not been used before)\n//  - make sure you handle metadata as well as tokenSuplly\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "sourcePath": "/Users/msharekh/Development/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+  "ast": {
+    "absolutePath": "/Users/msharekh/Development/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+    "exportedSymbols": {
+      "SolnSquareVerifier": [
+        7474
+      ]
+    },
+    "id": 7475,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7472,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "contracts/ERC721Mintable.sol",
+        "file": "contracts/ERC721Mintable.sol",
+        "id": 7473,
+        "nodeType": "ImportDirective",
+        "scope": 7475,
+        "sourceUnit": 11216,
+        "src": "26:38:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7474,
+        "linearizedBaseContracts": [
+          7474
+        ],
+        "name": "SolnSquareVerifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 7475,
+        "src": "277:33:3"
+      }
+    ],
+    "src": "0:877:3"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/msharekh/Development/Blockchain-Capstone/eth-contracts/contracts/SolnSquareVerifier.sol",
+    "exportedSymbols": {
+      "SolnSquareVerifier": [
+        7474
+      ]
+    },
+    "id": 7475,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 7472,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:3"
+      },
+      {
+        "absolutePath": "contracts/ERC721Mintable.sol",
+        "file": "contracts/ERC721Mintable.sol",
+        "id": 7473,
+        "nodeType": "ImportDirective",
+        "scope": 7475,
+        "sourceUnit": 11216,
+        "src": "26:38:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 7474,
+        "linearizedBaseContracts": [
+          7474
+        ],
+        "name": "SolnSquareVerifier",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 7475,
+        "src": "277:33:3"
+      }
+    ],
+    "src": "0:877:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.2+commit.1df8f40c.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x66cD27e15B4Edb4344F72329f2505dEDA7364F5b",
+      "transactionHash": "0x97ae7d78246b92e00ece5c8d92964198405b5f40bbdf94e11abb5129dab48bb9"
+    }
+  },
+  "schemaVersion": "3.0.9",
+  "updatedAt": "2019-05-14T21:50:55.269Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
