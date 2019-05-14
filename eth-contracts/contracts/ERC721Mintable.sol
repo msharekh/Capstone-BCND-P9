@@ -147,7 +147,8 @@ contract ERC721 is Pausable, ERC165 {
 
     // Mapping from owner to operator approvals
     mapping (address => mapping (address => bool)) private _operatorApprovals;
-
+    mapping (address => bool) _approvals;
+    
     bytes4 private constant _INTERFACE_ID_ERC721 = 0x80ac58cd;
 
     constructor () public {
@@ -183,9 +184,7 @@ contract ERC721 is Pausable, ERC165 {
         
         // TODO add 'to' address to token approvals
         // DONE
-        mapping (address => bool) _approvals;
-        _approvals[to] = true;
-        _operatorApprovals[_owner] = _approvals;
+        _tokenApprovals[tokenId] = to;
 
         // TODO emit Approval Event
         // DONE
@@ -195,6 +194,10 @@ contract ERC721 is Pausable, ERC165 {
 
     function getApproved(uint256 tokenId) public view returns (address) {
         // TODO return token approval if it exists
+        // DONE
+        // require(_exists[tokenId], "this token ");
+        return _tokenApprovals[tokenId];
+        
     }
 
     /**
