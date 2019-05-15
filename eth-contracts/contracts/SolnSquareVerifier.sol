@@ -9,7 +9,7 @@ import "contracts/SquareVerifier.sol";
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
 // DONE 
-contract SolnSquareVerifier is CustomERC721Token {
+contract SolnSquareVerifier is SquareVerifier {
 
     // SquareVerifier squareVerifier = new SquareVerifier();
 
@@ -19,7 +19,7 @@ contract SolnSquareVerifier is CustomERC721Token {
         uint256 tokenId; 
         address owner;
     }
-
+    
     // TODO define an array of the above struct
     // DONE 
     Solution[] solutionsArray;
@@ -76,7 +76,7 @@ contract SolnSquareVerifier is CustomERC721Token {
             uint[2] memory input
             ,address owner, uint256 tokenId, string memory tokenURI) public returns (bool){
 
-            // bool result = super.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
+            bool result = super.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
             // require(result,"incorrect proof");
 
             // addSolution(owner, tokenId);
