@@ -1,6 +1,9 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
 // var mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
 // var mnemonic =  "entry notable caution add execute coconut cradle talk erosion pupil art aware";
+
+// "skipDryRun: true"
+
 var mnemonic =
   "mixture fog alert teach south fiber fruit tag random flat negative expire";
 
