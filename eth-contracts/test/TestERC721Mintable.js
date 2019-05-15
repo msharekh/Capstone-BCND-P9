@@ -13,7 +13,7 @@ contract('TestERC721Mintable', accounts => {
             // TODO: mint multiple tokens
 
             let tokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
-            // function mint(address to, uint256 tokenId) public returns (bool) {
+            // function mint(address to, uint256 tokenId, string memory tokenURI) public  onlyOwner() returns (bool) {
             // let owner = await this.contract.getOwner()
             // console.log('owner', ':	', owner);
 
@@ -45,23 +45,34 @@ contract('TestERC721Mintable', accounts => {
             assert(tokenURI, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/2", 'tokenURI is not correct')
         })
 
-        // it('should transfer token from one owner to another', async function () {
+        it('(4) .... should transfer token from one owner to another', async function () {
+            // function transferFrom(address from, address to, uint256 tokenId) public {
 
-        // })
+            let tokenId = 2;
+            let oldOwner = await this.contract.ownerOf(tokenId);
+            console.log('oldOwner', ':	', oldOwner);
+
+            await this.contract.transferFrom(account_one, account_two, tokenId)
+            // ownerOf(uint256 tokenId) public view returns (address)
+            let newOwner = await this.contract.ownerOf(tokenId);
+            console.log('newOwner', ':	', newOwner);
+
+            assert(newOwner, account_two, 'Transferring is not complete')
+        })
     });
 
     describe('have ownership properties', function () {
-        // beforeEach(async function () {
-        //     this.contract = await CustomERC721Token.new({ from: account_one });
-        // })
+        beforeEach(async function () {
+            this.contract = await CustomERC721Token.new({ from: account_one });
+        })
 
-        // it('should fail when minting when address is not contract owner', async function () {
+        it('(5) .... should fail when minting when address is not contract owner', async function () {
 
-        // })
+        })
 
-        // it('should return contract owner', async function () {
+        it('(6) .... should return contract owner', async function () {
 
-        // })
+        })
 
     });
 })
