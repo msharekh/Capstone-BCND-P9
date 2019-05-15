@@ -24,11 +24,13 @@ module.exports = {
     rinkeby: {
       provider: function() {
         return new HDWalletProvider(
-          MNEMONIC,
+          mnemonic,
           "rinkeby.infura.io/v3/7ab2e27314c0439aa5093d7121e15ec7"
         );
       },
-      network_id: "4" // Rinkeby ID 4
+      network_id: "4" ,// Rinkeby ID 
+       gas: 4500000,
+      gasPrice: 10000000000
     }
   },
   // Configure your compilers
