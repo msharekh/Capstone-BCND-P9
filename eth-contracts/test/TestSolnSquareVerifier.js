@@ -64,6 +64,23 @@ contract('TestSolnSquareVerifier', accounts => {
 
         it('(9) .... Test if a new solution can be added for contract - SolnSquareVerifier', async function () {
 
+            let a = correct_proofJSON.proof.A;
+            let a_p = correct_proofJSON.proof.A_p;
+
+            let b = correct_proofJSON.proof.B;
+            let b_p = correct_proofJSON.proof.B_p;
+
+            let c = correct_proofJSON.proof.C;
+            let c_p = correct_proofJSON.proof.C_p;
+
+            let h = correct_proofJSON.proof.H;
+            let k = correct_proofJSON.proof.K;
+
+            let input = correct_proofJSON.input;
+
+            // address owner, uint256 tokenId, string memory tokenURI
+            let result = await this.contract.mintNFT.call(a, a_p, b, b_p, c, c_p, h, k, input, owner, tokenId, tokenURI)
+            console.log('result adding solution', ':	', result);
 
 
         })
