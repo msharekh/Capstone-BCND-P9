@@ -38,8 +38,11 @@ contract('TestERC721Mintable', accounts => {
         })
 
         // token uri should be complete i.e: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1
-        it('should return token uri', async function () {
+        it('(3) .... should return token uri', async function () {
+            let tokenURI = await this.contract.tokenURI(2);
+            console.log('tokenURI', ':	', tokenURI);
 
+            assert(tokenURI, "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/2", 'tokenURI is not correct')
         })
 
         // it('should transfer token from one owner to another', async function () {

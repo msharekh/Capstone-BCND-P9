@@ -567,7 +567,8 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         // DONE z
         _name = name;
         _symbol = symbol;
-
+        _baseTokenURI = baseTokenURI;
+        
         _registerInterface(_INTERFACE_ID_ERC721_METADATA);
     }
 
