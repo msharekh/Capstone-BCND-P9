@@ -1,5 +1,6 @@
 pragma solidity ^0.5.0;
 
+// import 'contracts/SquareVerifier.sol';
 
 import "contracts/ERC721Mintable.sol";
 // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
@@ -7,8 +8,16 @@ import "contracts/ERC721Mintable.sol";
 
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
-contract SolnSquareVerifier  {
+contract SolnSquareVerifier   {
 
+    // constructor(address verifierAddress, string memory name, string memory symbol) CustomERC721Token(name, symbol) public 
+    // {
+    //     // SquareVerifier squareVerifier; 
+    //     // squareVerifier = SquareVerifier(verifierAddress);
+    // }
+
+}
+contract SquareVerifier {
 }
  
 

@@ -626,22 +626,12 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -calls the superclass mint and setTokenURI functions
 
 // this contract will be tested 
-contract CustomERC721Token is ERC721Metadata{
-    // constructor (string _name, string _symbol) public {
-    // constructor () public {
-    // // Token name
-    // string private _name;
 
-    // // Token symbol
-    // string private _symbol;
+    // constructor (string memory name, string memory symbol, string memory baseTokenURI) public {
 
-    // // Token baseTokenURI
-    // string private _baseTokenURI;
- 
-    // string private constant _baseTokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/" ;
-    // }
-
-
+contract CustomERC721Token 
+is ERC721Metadata("TokenX","MSH","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/")
+{
     function mint(address to, uint256 tokenId) public returns (bool) {
         address owner = getOwner();
         require(msg.sender == owner, "can only be executed by the contract owner");
@@ -650,11 +640,7 @@ contract CustomERC721Token is ERC721Metadata{
 
         super._mint(to, tokenId);
 
-        // _addTokenToOwnerEnumeration(to, tokenId);
-
-        // _addTokenToAllTokensEnumeration(tokenId);
-
-        // _setTokenURI( tokenId, _baseTokenURI);
+       
         
         
         return true;
