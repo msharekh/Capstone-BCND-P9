@@ -66,7 +66,7 @@ contract('TestERC721Mintable', accounts => {
     describe('have ownership properties', function () {
         beforeEach(async function () {
             //reset owner
-            this.contract = await ERC721Metadata.new({ from: account_one });
+            this.contract = await CustomERC721Token.new({ from: account_one });
         })
 
         it('(5) .... should fail when minting when address is not contract owner', async function () {
@@ -88,7 +88,7 @@ contract('TestERC721Mintable', accounts => {
         })
 
         it('(6) .... should return contract owner', async function () {
-            let owner = await this.contract.getOwner()
+            let owner = await this.contract.owner()
             console.log('owner', ':	', owner);
 
             assert.equal(owner, account_one, "owner is not account_one")
