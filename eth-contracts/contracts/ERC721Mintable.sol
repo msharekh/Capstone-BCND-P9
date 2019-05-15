@@ -14,7 +14,7 @@ contract Ownable {
     //  1) create a private '_owner' variable of type address with a public getter function
     // DONE w
     address private _owner;
-    function getOwner() public view returns (address _owner) {
+    function owner() public view returns (address _owner) {
         return _owner;
     }
 
