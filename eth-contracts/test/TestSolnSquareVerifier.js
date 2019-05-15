@@ -79,8 +79,11 @@ contract('TestSolnSquareVerifier', accounts => {
             let input = correct_proofJSON.input;
 
             // address owner, uint256 tokenId, string memory tokenURI
-            // let result = await this.contract.mintNFT.call(a, a_p, b, b_p, c, c_p, h, k, input, owner, tokenId, tokenURI)
-            // console.log('result adding solution', ':	', result);
+            let tokenId = 1;
+            let tokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+
+            let result = await this.contract.mintNFT.call(a, a_p, b, b_p, c, c_p, h, k, input, account_one, tokenId, tokenURI)
+            console.log('result adding solution', ':	', result);
 
 
         })

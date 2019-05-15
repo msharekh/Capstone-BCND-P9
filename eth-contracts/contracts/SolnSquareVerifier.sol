@@ -85,7 +85,7 @@ contract SolnSquareVerifier is CustomERC721Token {
             
     //  - make sure you handle metadata as well as tokenSuplly
 
-        return true;
+            return true;
         }
    
     }
