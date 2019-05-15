@@ -14,13 +14,13 @@ contract Ownable {
     //  1) create a private '_owner' variable of type address with a public getter function
     // DONE w
     address private _owner;
-    function getOwner() public returns (address _owner) {
+    function getOwner() public view returns (address _owner) {
         return _owner;
     }
 
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
     // DONE w
-    constructor () public {
+    constructor () internal {
         _owner = msg.sender;
         emit OwnershipTransferred(address(0), _owner);
 
@@ -568,7 +568,7 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         _name = name;
         _symbol = symbol;
         _baseTokenURI = baseTokenURI;
-        
+
         _registerInterface(_INTERFACE_ID_ERC721_METADATA);
     }
 
