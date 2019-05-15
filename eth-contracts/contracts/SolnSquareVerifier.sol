@@ -8,7 +8,7 @@ import "contracts/ERC721Mintable.sol";
 
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
-contract SolnSquareVerifier   {
+contract SolnSquareVerifier is CustomERC721Token  {
 
     // constructor(address verifierAddress, string memory name, string memory symbol) CustomERC721Token(name, symbol) public 
     // {
