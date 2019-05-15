@@ -54,7 +54,7 @@ contract('TestSolnSquareVerifier', accounts => {
 
     describe('Test solution and minted', function () {
         beforeEach(async function () {
-            // this.contract = await SolnSquareVerifier.new({ from: account_one });
+            this.contract = await SolnSquareVerifier.new({ from: account_one });
 
             console.log('START....');
 
