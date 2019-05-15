@@ -9,7 +9,8 @@ import "contracts/SquareVerifier.sol";
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
 // DONE 
-contract SolnSquareVerifier is SquareVerifier {
+// contract SolnSquareVerifier is SquareVerifier , CustomERC721Token("TokenX","MSH","https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/") {
+contract SolnSquareVerifier is CustomERC721Token{
 
     // SquareVerifier squareVerifier = new SquareVerifier();
 
@@ -64,7 +65,7 @@ contract SolnSquareVerifier is SquareVerifier {
  // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
         // DONE 
-       function mintNFT(
+    function mintNFT(
             uint[2] memory a,
             uint[2] memory a_p,
             uint[2][2] memory b,
@@ -76,12 +77,12 @@ contract SolnSquareVerifier is SquareVerifier {
             uint[2] memory input
             ,address owner, uint256 tokenId, string memory tokenURI) public returns (bool){
 
-            bool result = super.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
+            // bool result = super.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
             // require(result,"incorrect proof");
 
-            // addSolution(owner, tokenId);
+            addSolution(owner, tokenId);
 
-            // super.mint(owner, tokenId, tokenURI);
+            super.mint(owner, tokenId, tokenURI);
             
     //  - make sure you handle metadata as well as tokenSuplly
 
