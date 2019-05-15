@@ -1,50 +1,68 @@
-var HDWalletProvider = require("truffle-hdwallet-provider");
-// var mnemonic = "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
-// var mnemonic =  "entry notable caution add execute coconut cradle talk erosion pupil art aware";
-
-// "skipDryRun: true"
-
-var mnemonic =
-  "mixture fog alert teach south fiber fruit tag random flat negative expire";
+let HDWalletProvider = require('truffle-hdwallet-provider');
+let infuraKey = '7ab2e27314c0439aa5093d7121e15ec7';
+let mnemonic =
+    'uphold picnic age aunt sheriff embody dune gauge merit hero purse innocent';
 
 module.exports = {
-  networks: {
-    development: {
-      provider: function() {
-        return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/", 0, 50);
-      },
-      host: "127.0.0.1",
-      port: 8545,
-      network_id: "*", // Match any network id
-      // gas:400000000000,
-      // gas: 1000258612000000000,
-      gas: 5555555
-      // from: "0xf212bb926f7a831ff745e4236fc704a9947de77c"
-    },
-    rinkeby: {
-      provider: function() {
-        return new HDWalletProvider(
-          mnemonic,
-          "rinkeby.infura.io/v3/7ab2e27314c0439aa5093d7121e15ec7"
-        );
-      },
-      network_id: "4" ,// Rinkeby ID 
-       gas: 4500000,
-      gasPrice: 10000000000
-    }
-  },
-  // Configure your compilers
+    networks: {
+        development: {
+            host: '127.0.0.1',
+            port: 8545,
+            network_id: '*' // Match any network id
+        },
+        rinkeby: {
+            provider: function () {
+                return new HDWalletProvider(
+                    mnemonic,
+                    'https://rinkeby.infura.io/v3/' + infuraKey
+                );
+            },
+            // from: '0x66178bd1f010b4bF530203f90f889b599874fF84',
+            network_id: 4,
+            gas: 4500000,
+            gasPrice: 10000000000
+        }
+    } /* ,
   compilers: {
     solc: {
-      version: "0.5.2", // Fetch exact version from solc-bin (default: truffle's version)
-      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      optimizer: {
-        enabled: true,
-        runs: 200
+      version: '0.4.24',
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200
+        }
       }
-      //  evmVersion: "byzantium"
-      // }
     }
-  }
+  } */
 };
+
+// const HDWalletProvider = require('truffle-hdwallet-provider');
+// module.exports = {
+//   compilers: {
+//     solc: {
+//       optimizer: {
+//         enabled: true,
+//         runs: 200
+//       }
+//     }
+//   },
+//   networks: {
+//     development: {
+//       host: '127.0.0.1',
+//       port: 8545,
+//       network_id: '*' // Match any network id
+//     },
+//     rinkeby: {
+//       provider: () => {
+//         //replace string parameters
+//         return new HDWalletProvider(
+//           'vacuum stuff swap chaos bulb design suit mask ticket october note private',
+//           'rinkeby.infura.io/v3/5f756d9eb86749e1ad58bd0a563e4b9b'
+//         );
+//       },
+//       network_id: 4,
+//       gas: 6700000,
+//       gasPrice: 10000000000
+//     }
+//   }
+// };
