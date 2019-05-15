@@ -54,7 +54,7 @@ contract('TestSolnSquareVerifier', accounts => {
 
     describe('Test solution and minted', function () {
         beforeEach(async function () {
-            this.contract = await SolnSquareVerifier.new({ from: account_one });
+            // this.contract = await SolnSquareVerifier.new({ from: account_one });
 
             console.log('START....');
 
@@ -79,8 +79,8 @@ contract('TestSolnSquareVerifier', accounts => {
             let input = correct_proofJSON.input;
 
             // address owner, uint256 tokenId, string memory tokenURI
-            let result = await this.contract.mintNFT.call(a, a_p, b, b_p, c, c_p, h, k, input, owner, tokenId, tokenURI)
-            console.log('result adding solution', ':	', result);
+            // let result = await this.contract.mintNFT.call(a, a_p, b, b_p, c, c_p, h, k, input, owner, tokenId, tokenURI)
+            // console.log('result adding solution', ':	', result);
 
 
         })
