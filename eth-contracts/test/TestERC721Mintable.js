@@ -11,20 +11,36 @@ contract('TestERC721Mintable', accounts => {
 
             console.log('START....');
             // TODO: mint multiple tokens
+
+            let tokenURI = "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+            // function mint(address to, uint256 tokenId) public returns (bool) {
+            // let owner = await this.contract.getOwner()
+            // console.log('owner', ':	', owner);
+
+            for (let i = 0; i < 10; i++) {
+                await this.contract.mint(account_one, i, tokenURI)
+            }
         })
 
-        it('should return total supply', async function () {
+        it('(1) .... should return total supply', async function () {
+            let totalSupply = await this.contract.totalSupply();
+            console.log('account_one', ':	', account_one);
+            console.log('total supplay', ':	', totalSupply.toNumber());
 
+            assert(totalSupply, 10, 'total supply is not 10')
         })
 
-        // it('should get token balance', async function () {
+        it('(2) .... should get token balance', async function () {
+            let balance = await this.contract.balanceOf(account_one);
+            console.log('balance', ':	', balance.toNumber());
 
-        // })
+            assert(balance, 10, 'balance is not 10')
+        })
 
-        // // token uri should be complete i.e: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1
-        // it('should return token uri', async function () {
+        // token uri should be complete i.e: https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1
+        it('should return token uri', async function () {
 
-        // })
+        })
 
         // it('should transfer token from one owner to another', async function () {
 
