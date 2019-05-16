@@ -8,10 +8,11 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 8545,
+      gas: 5555555,
       network_id: "*" // Match any network id
     },
     rinkeby: {
-      provider: function() {
+      provider: function () {
         return new HDWalletProvider(
           mnemonic,
           "https://rinkeby.infura.io/v3/" + infuraKey

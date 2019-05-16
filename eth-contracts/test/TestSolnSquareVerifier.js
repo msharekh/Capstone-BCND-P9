@@ -1,3 +1,4 @@
+var SquareVerifier = artifacts.require("SquareVerifier");
 var SolnSquareVerifier = artifacts.require("SolnSquareVerifier");
 
 contract("TestSolnSquareVerifier", accounts => {
@@ -48,16 +49,16 @@ contract("TestSolnSquareVerifier", accounts => {
     input: [9, 1]
   };
 
-  describe("Test solution and minted", function() {
-    beforeEach(async function() {
-      this.contract = await SolnSquareVerifier.new({ from: account_one });
+  describe("Test solution and minted", function () {
+    beforeEach(async function () {
+      let verifierContract = await SquareVerifier.new();
+
+      this.contract = await SolnSquareVerifier.new(verifierContract.address);
 
       console.log("START....");
     });
 
-    // Test if a new solution can be added for contract - SolnSquareVerifier
-
-    it("(9) .... Test if a new solution can be added for contract - SolnSquareVerifier", async function() {
+    it("PRE   (9) .... ", async function () {
       let a = correct_proofJSON.proof.A;
       let a_p = correct_proofJSON.proof.A_p;
 
@@ -77,7 +78,7 @@ contract("TestSolnSquareVerifier", accounts => {
       let tokenURI =
         "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
 
-      let result = await this.contract.mintNFT.call(
+      let result = await this.contract.verifyTrans(
         a,
         a_p,
         b,
@@ -88,29 +89,67 @@ contract("TestSolnSquareVerifier", accounts => {
         k,
         input,
         account_one,
-        tokenId,
-        tokenURI
+        tokenId
       );
-      console.log("result adding solution", ":	", result);
+      console.log('result>>>');
+      console.log(result);
+    })
+    // Test if a new solution can be added for contract - SolnSquareVerifier
 
-      assert.equal(result, true, "not added for contract - SolnSquareVerifier");
-    });
+    // it("(9) .... Test if a new solution can be added for contract - SolnSquareVerifier", async function() {
+    //   let a = correct_proofJSON.proof.A;
+    //   let a_p = correct_proofJSON.proof.A_p;
 
-    it("(10) .... Test if an ERC721 token can be minted for contract - SolnSquareVerifier", async function() {
-      let tokenId = 1;
-      let tokenURI =
-        "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+    //   let b = correct_proofJSON.proof.B;
+    //   let b_p = correct_proofJSON.proof.B_p;
 
-      // mint(address to, uint256 tokenId, string memory tokenURI)
-      let result = await this.contract.mint.call(
-        account_one,
-        tokenId,
-        tokenURI
-      );
-      console.log("result ERC721 token", ":	", result);
+    //   let c = correct_proofJSON.proof.C;
+    //   let c_p = correct_proofJSON.proof.C_p;
 
-      assert.equal(result, true, "not mint ERC721 token - SolnSquareVerifier");
-    });
+    //   let h = correct_proofJSON.proof.H;
+    //   let k = correct_proofJSON.proof.K;
+
+    //   let input = correct_proofJSON.input;
+
+    //   // address owner, uint256 tokenId, string memory tokenURI
+    //   let tokenId = 1;
+    //   let tokenURI =
+    //     "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+
+    //   let result = await this.contract.mintNFT.call(
+    //     a,
+    //     a_p,
+    //     b,
+    //     b_p,
+    //     c,
+    //     c_p,
+    //     h,
+    //     k,
+    //     input,
+    //     account_one,
+    //     tokenId,
+    //     tokenURI
+    //   );
+    //   console.log("result adding solution", ":	", result);
+
+    //   assert.equal(result, true, "not added for contract - SolnSquareVerifier");
+    // });
+
+    // it("(10) .... Test if an ERC721 token can be minted for contract - SolnSquareVerifier", async function() {
+    //   let tokenId = 1;
+    //   let tokenURI =
+    //     "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+
+    //   // mint(address to, uint256 tokenId, string memory tokenURI)
+    //   let result = await this.contract.mint.call(
+    //     account_one,
+    //     tokenId,
+    //     tokenURI
+    //   );
+    //   console.log("result ERC721 token", ":	", result);
+
+    //   assert.equal(result, true, "not mint ERC721 token - SolnSquareVerifier");
+    // });
   });
 });
 
