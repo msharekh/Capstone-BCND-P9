@@ -587,15 +587,22 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
         return _symbol;
     }
 
-    
+    function baseTokenURI() internal view returns (string memory) {
+        return _baseTokenURI;
+    }
+
      
 
 
 
 
-    function tokenURI(uint256 tokenId) external view returns (string memory) {
-        require(_exists(tokenId));
-        return _tokenURIs[tokenId];
+    function tokenURI(uint256 _tokenId) external view returns (string memory) {
+        // require(_exists(tokenId));
+        // return _tokenURIs[tokenId];
+        return strConcat(
+            baseTokenURI(),
+            uint2str(_tokenId)
+        );
     }
 
 

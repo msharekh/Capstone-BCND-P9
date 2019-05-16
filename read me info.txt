@@ -1,0 +1,112 @@
+```
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var mnemonic =
+  "mixture fog alert teach south fiber fruit tag random flat negative expire";
+
+module.exports = {
+  networks: {
+    development: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "http://127.0.0.1:8545/", 0, 50);
+      },
+      host: "127.0.0.1",
+      port: 8545,
+      network_id: "*", // Match any network id
+      // gas:400000000000,
+      // gas: 1000258612000000000,
+      gas: 5555555
+      // from: "0xf212bb926f7a831ff745e4236fc704a9947de77c"
+    },
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(
+          MNEMONIC,
+          "rinkeby.infura.io/v3/7ab2e27314c0439aa5093d7121e15ec7"
+        );
+      },
+      network_id: "4" // Rinkeby ID 4
+    }
+  },
+  // Configure your compilers
+  compilers: {
+    solc: {
+      version: "0.5.2", // Fetch exact version from solc-bin (default: truffle's version)
+      // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
+      // settings: {          // See the solidity docs for advice about optimization and evmVersion
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+      //  evmVersion: "byzantium"
+      // }
+    }
+  }
+};
+
+
+0x9073172a8DB73af1d5C6650797F612579B3cf273
+
+https://twitter.com/mishal_sharekh/status/1128740985536700417
+```\
+
+Contract: TestERC721Mintable
+    match erc721 spec
+START....
+account_one :	 0x68F48429F451934fD1032ba63be0f72eB10424EB
+total supplay :	 10
+      ✓ (1) .... should return total supply (429ms)
+START....
+balance :	 10
+      ✓ (2) .... should get token balance (406ms)
+START....
+tokenURI :	 https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/2
+      ✓ (3) .... should return token uri (206ms)
+START....
+oldOwner :	 0x68F48429F451934fD1032ba63be0f72eB10424EB
+newOwner :	 0x18495D2af425D56005812644136Bf68282188aEA
+      ✓ (4) .... should transfer token from one owner to another (953ms)
+    have ownership properties
+mint result :	 false
+      ✓ (5) .... should fail when minting when address is not contract owner (8030ms)
+owner :	 0x68F48429F451934fD1032ba63be0f72eB10424EB
+      ✓ (6) .... should return contract owner (1032ms)
+
+
+  6 passing (1m)
+
+
+Contract: TestSquareVerifier
+    Test verification
+START....
+correct proof...
+[ '0x1e1bfd69290ca65014a42a355e22106a93c7d24e44c7d2d0d4a9a61d19421d9e',
+  '0x0b69cb41c92021ebd58e91d44aa948be20e6082ce3488f171d7ad9961cb915e0' ]
+[ '0x0e630696be49ca2639513c1b23dc403e4bc6b3e7b61b319c0d802f3a422c239b',
+  '0x2963c7e573e2ebb78b413135a7a405d11a1a57c67a54a161b5f523c57c2b4a8f' ]
+input :	 [ 9, 1 ]
+correct result :	 true
+      ✓ (7) .... Test verification with correct proof (36916ms)
+START....
+incorrect result :	 false
+      ✓ (8) .... Test verification with incorrect proof (14240ms)
+
+
+  2 passing (58s)
+
+
+
+
+Contract: TestSolnSquareVerifier
+    Test solution and minted
+START....
+result adding solution :	 true
+      ✓ (9) .... Test if a new solution can be added for contract - SolnSquareVerifier (1122ms)
+START....
+result ERC721 token :	 true
+      ✓ (10) .... Test if an ERC721 token can be minted for contract - SolnSquareVerifier (477ms)
+
+
+  2 passing (7s)
+
+
