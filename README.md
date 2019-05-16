@@ -22,7 +22,9 @@ $ npm install
 
 ## Deployment Info
 
-#### Deployed Address on the Rinkeby Network: 0x8b40452E0045F3bbF607940Cd696309a6dD5f2CF 
+#### Deployed Address on the Rinkeby Network: 0xc7dAdA8039B4D27Ed69cAd26d5845Aa8C88c1E86 
+
+#### Deployed openSea : https://rinkeby.opensea.io/get-listed/step-three/0xc7dAdA8039B4D27Ed69cAd26d5845Aa8C88c1E86
 
 #### ERC-721  
 
