@@ -25,7 +25,7 @@ $ npm install
 #### Deployed SolnSquareVerifier.sol on the Rinkeby Network: 0xa637D7f97ff059dbec93C204d0dBD99F5761B4bc 
 #### Deployed SquareVerifier.sol on the Rinkeby Network: 0xAAa546184e0f4cE92Dcf8c861C8AD46485bF573D 
 
-#### Deployed openSea : https://rinkeby.opensea.io/category/tokenxv2
+#### Deployed openSea : https://rinkeby.opensea.io/assets/tokenxv2
 
 #### abi:
 ```
