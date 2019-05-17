@@ -22,13 +22,14 @@ $ npm install
 
 ## Deployment Info
 
-#### Deployed Address on the Rinkeby Network: 0xc7dAdA8039B4D27Ed69cAd26d5845Aa8C88c1E86 
+#### Deployed SolnSquareVerifier.sol on the Rinkeby Network: 0xa637D7f97ff059dbec93C204d0dBD99F5761B4bc 
+#### Deployed SquareVerifier.sol on the Rinkeby Network: 0xAAa546184e0f4cE92Dcf8c861C8AD46485bF573D 
 
 #### Deployed openSea : https://rinkeby.opensea.io/get-listed/step-three/0xc7dAdA8039B4D27Ed69cAd26d5845Aa8C88c1E86
 
 #### abi:
 ```
- [
+ "abi": [
     {
       "constant": true,
       "inputs": [
@@ -381,7 +382,7 @@ $ npm install
       "constant": true,
       "inputs": [
         {
-          "name": "tokenId",
+          "name": "_tokenId",
           "type": "uint256"
         }
       ],
@@ -459,6 +460,17 @@ $ npm install
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "verifierAddress",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     },
     {
       "anonymous": false,
@@ -583,6 +595,42 @@ $ npm install
       "constant": false,
       "inputs": [
         {
+          "name": "a",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "a_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "b",
+          "type": "uint256[2][2]"
+        },
+        {
+          "name": "b_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "h",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "k",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "input",
+          "type": "uint256[2]"
+        },
+        {
           "name": "_owner",
           "type": "address"
         },
@@ -593,6 +641,124 @@ $ npm install
       ],
       "name": "addSolution",
       "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "a_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "b",
+          "type": "uint256[2][2]"
+        },
+        {
+          "name": "b_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "h",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "k",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "input",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isFound",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "a_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "b",
+          "type": "uint256[2][2]"
+        },
+        {
+          "name": "b_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "c_p",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "h",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "k",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "input",
+          "type": "uint256[2]"
+        },
+        {
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "verifyTrans",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
@@ -660,7 +826,7 @@ $ npm install
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ],
+  ]
 ```
 
 
