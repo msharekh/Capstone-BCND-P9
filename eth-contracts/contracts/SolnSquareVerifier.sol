@@ -20,6 +20,13 @@ contract SolnSquareVerifier is CustomERC721Token{
     public 
     {
         verifier = SquareVerifier(verifierAddress);
+
+        //mint
+        address _owner = msg.sender;
+        uint256 _tokenId = 1;
+        string memory _tokenURI ="https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/1";
+
+        super.mint(_owner, _tokenId, _tokenURI);
     }
 
     // TODO define a solutions struct that can hold an index & an address
@@ -144,7 +151,7 @@ contract SolnSquareVerifier is CustomERC721Token{
             require(_verified,"incorrect proof");
 
 
-            //check uniqueness, is exist before
+            //check uniqueness, is exist before 
             bool _isFound = isFound(a, a_p, b, b_p, c, c_p, h, k, input,owner, tokenId);
             require(!_isFound,"duplicated proof");
 
