@@ -1,8 +1,8 @@
 let HDWalletProvider = require("truffle-hdwallet-provider");
 let infuraKey = "7ab2e27314c0439aa5093d7121e15ec7";
-let mnemonic = 'uphold picnic age aunt sheriff embody dune gauge merit hero purse innocent';
-// let mnemonic =
-//   "pretty cricket pyramid weekend damage title cement achieve lumber glimpse whisper quit";
+// let mnemonic = 'uphold picnic age aunt sheriff embody dune gauge merit hero purse innocent';
+let mnemonic =
+  "pretty cricket pyramid weekend damage title cement achieve lumber glimpse whisper quit";
 module.exports = {
   networks: {
     development: {
@@ -12,7 +12,7 @@ module.exports = {
       network_id: "*" // Match any network id
     },
     rinkeby: {
-      provider: function () {
+      provider: function() {
         return new HDWalletProvider(
           mnemonic,
           "https://rinkeby.infura.io/v3/" + infuraKey
@@ -20,7 +20,7 @@ module.exports = {
       },
       // from: '0x66178bd1f010b4bF530203f90f889b599874fF84',
       network_id: 4,
-      gas: 4500000,
+      gas: 5555555,
       gasPrice: 10000000000
     }
   },
