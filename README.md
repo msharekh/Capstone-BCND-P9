@@ -22,13 +22,14 @@ $ npm install
 
 ## Deployment Info
 
-#### Deployed SolnSquareVerifier.sol on the Rinkeby Network: 0xa637D7f97ff059dbec93C204d0dBD99F5761B4bc 
-#### Deployed SquareVerifier.sol on the Rinkeby Network: 0xAAa546184e0f4cE92Dcf8c861C8AD46485bF573D 
+#### Deployed SolnSquareVerifier.sol on the Rinkeby Network: 0x2f1862dab2f7CADF25B5ac7b0c32bdBd1e304839 
+#### Deployed SquareVerifier.sol on the Rinkeby Network: 0x19d881FDd16A7f93d3f2fD0A69c7fd57ecAB9b17 
 
-#### Deployed openSea : https://rinkeby.opensea.io/assets/tokenxv2
+#### Deployed openSea : https://rinkeby.opensea.io/assets/sweettoken
 
 #### abi:
 ```
+ "abi": 
  "abi": [
     {
       "constant": true,
@@ -826,7 +827,7 @@ $ npm install
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ]
+  ],
 ```
 
 
