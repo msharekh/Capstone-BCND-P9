@@ -1,8 +1,8 @@
 let HDWalletProvider = require("truffle-hdwallet-provider");
 let infuraKey = "7ab2e27314c0439aa5093d7121e15ec7";
-// let mnemonic =    'uphold picnic age aunt sheriff embody dune gauge merit hero purse innocent';
-let mnemonic =
-  "pretty cricket pyramid weekend damage title cement achieve lumber glimpse whisper quit";
+let mnemonic = 'uphold picnic age aunt sheriff embody dune gauge merit hero purse innocent';
+// let mnemonic =
+//   "pretty cricket pyramid weekend damage title cement achieve lumber glimpse whisper quit";
 module.exports = {
   networks: {
     development: {
