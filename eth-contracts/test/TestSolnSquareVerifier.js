@@ -92,64 +92,68 @@ contract("TestSolnSquareVerifier", accounts => {
         tokenId
       );
       console.log('result>>>');
-      console.log(result);
+      // console.log(result);
     })
     // Test if a new solution can be added for contract - SolnSquareVerifier
 
-    // it("(9) .... Test if a new solution can be added for contract - SolnSquareVerifier", async function() {
-    //   let a = correct_proofJSON.proof.A;
-    //   let a_p = correct_proofJSON.proof.A_p;
+    it("(9) .... Test if a new solution can be added for contract - SolnSquareVerifier", async function () {
+      let a = correct_proofJSON.proof.A;
+      let a_p = correct_proofJSON.proof.A_p;
 
-    //   let b = correct_proofJSON.proof.B;
-    //   let b_p = correct_proofJSON.proof.B_p;
+      let b = correct_proofJSON.proof.B;
+      let b_p = correct_proofJSON.proof.B_p;
 
-    //   let c = correct_proofJSON.proof.C;
-    //   let c_p = correct_proofJSON.proof.C_p;
+      let c = correct_proofJSON.proof.C;
+      let c_p = correct_proofJSON.proof.C_p;
 
-    //   let h = correct_proofJSON.proof.H;
-    //   let k = correct_proofJSON.proof.K;
+      let h = correct_proofJSON.proof.H;
+      let k = correct_proofJSON.proof.K;
 
-    //   let input = correct_proofJSON.input;
+      let input = correct_proofJSON.input;
 
-    //   // address owner, uint256 tokenId, string memory tokenURI
-    //   let tokenId = 1;
-    //   let tokenURI =
-    //     "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+      // address owner, uint256 tokenId, string memory tokenURI
+      let tokenId = 1;
+      let tokenURI =
+        "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
 
-    //   let result = await this.contract.mintNFT.call(
-    //     a,
-    //     a_p,
-    //     b,
-    //     b_p,
-    //     c,
-    //     c_p,
-    //     h,
-    //     k,
-    //     input,
-    //     account_one,
-    //     tokenId,
-    //     tokenURI
-    //   );
-    //   console.log("result adding solution", ":	", result);
+      let result = await this.contract.mintNFT.call(
+        a,
+        a_p,
+        b,
+        b_p,
+        c,
+        c_p,
+        h,
+        k,
+        input,
+        account_one,
+        tokenId,
+        tokenURI
+      );
+      // console.log("result adding solution", ":	", result);
 
-    //   assert.equal(result, true, "not added for contract - SolnSquareVerifier");
-    // });
+      assert.equal(result, true, "not added for contract - SolnSquareVerifier");
+    });
 
-    // it("(10) .... Test if an ERC721 token can be minted for contract - SolnSquareVerifier", async function() {
-    //   let tokenId = 1;
-    //   let tokenURI =
-    //     "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
 
-    //   // mint(address to, uint256 tokenId, string memory tokenURI)
-    //   let result = await this.contract.mint.call(
-    //     account_one,
-    //     tokenId,
-    //     tokenURI
-    //   );
-    //   console.log("result ERC721 token", ":	", result);
 
-    //   assert.equal(result, true, "not mint ERC721 token - SolnSquareVerifier");
-    // });
+
+
+    it("(10) .... Test if an ERC721 token can be minted for contract - SolnSquareVerifier", async function () {
+      let tokenId = 1;
+      let tokenURI =
+        "https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/";
+
+      // mint(address to, uint256 tokenId, string memory tokenURI)
+      let result = await this.contract.mint.call(
+        account_one,
+        tokenId,
+        tokenURI
+      );
+      console.log("result ERC721 token", ":	", result);
+
+      assert.equal(result, true, "not mint ERC721 token - SolnSquareVerifier");
+    });
   });
 });
 

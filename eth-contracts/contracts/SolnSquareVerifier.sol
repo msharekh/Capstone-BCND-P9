@@ -33,9 +33,10 @@ contract SolnSquareVerifier is CustomERC721Token{
             // DONE 
             Solution[] solutionsArray;
 
+            bytes32[] usedProofs;
             // TODO define a mapping to store unique solutions submitted
             // DONE 
-            mapping (bytes32=>Solution)  uniqueSolutions;
+            mapping (bytes32 => bool)  uniqueSolutions;
 
 
             // TODO Create an event to emit when a solution is added
@@ -46,26 +47,57 @@ contract SolnSquareVerifier is CustomERC721Token{
 
 
         // TODO Create a function to add the solutions to the array and emit the event
-            function addSolution(address _owner,uint256 _tokenId) public{
+            function addSolution(
+                uint[2] memory a,
+                uint[2] memory a_p,
+                uint[2][2] memory b,
+                uint[2] memory b_p,
+                uint[2] memory c,
+                uint[2] memory c_p,
+                uint[2] memory h,
+                uint[2] memory k,
+                uint[2] memory input,
+                address _owner,uint256 _tokenId) public{
+
+
+
                 // to add the solutions to the array
                 // DONE 
                 Solution memory solution;
                 solution = Solution({tokenId:_tokenId,owner:_owner});
+
+                bytes32 key = keccak256(abi.encodePacked(a, a_p, b, b_p, c, c_p, h, k,_owner, _tokenId));
+                //this will include all arrays
                 solutionsArray.push(solution);
-                
-                //to creat unique key
-                // uint256 timecAall;
-                // timecAall =now;
 
-
-                bytes32 key = keccak256(abi.encodePacked(_owner, _tokenId));
-
-                uniqueSolutions[key]=solution;
+                uniqueSolutions[key]=true;
 
 
                 //and emit the event
                 // DONE 
-                // emit SolutionAdded( _owner );
+                emit SolutionAdded( _owner );
+            }
+ 
+
+            function isFound(
+                uint[2] memory a,
+                uint[2] memory a_p,
+                uint[2][2] memory b,
+                uint[2] memory b_p,
+                uint[2] memory c,
+                uint[2] memory c_p,
+                uint[2] memory h,
+                uint[2] memory k,
+                uint[2] memory input,
+                address _owner,uint256 _tokenId
+            ) 
+            public view returns (bool)
+            {
+                bool _found ;
+                bytes32 key = keccak256(abi.encodePacked(a, a_p, b, b_p, c, c_p, h, k,_owner, _tokenId));
+                // uniqueSolutions[key]=true;
+                _found = uniqueSolutions[key];
+                return _found;
             }
    
 
@@ -86,8 +118,8 @@ contract SolnSquareVerifier is CustomERC721Token{
         // SquareVerifier verifier= SquareVerifier(address(this));
 
         bool result = verifier.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
-        // return result;
-        return true;
+        return result;
+        // return true;
     }
 
  // TODO Create a function to mint new NFT only after the solution has been verified
@@ -105,12 +137,22 @@ contract SolnSquareVerifier is CustomERC721Token{
             uint[2] memory input
             ,address owner, uint256 tokenId, string memory tokenURI) public returns (bool){
 
-            // bool result = verifier.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
-            // require(result,"incorrect proof");
+             
 
-            addSolution(owner, tokenId);
+            //first verify proof
+            bool _verified = verifier.verifyTx(a, a_p, b, b_p, c, c_p, h, k, input);
+            require(_verified,"incorrect proof");
 
+
+            //check uniqueness, is exist before
+            bool _isFound = isFound(a, a_p, b, b_p, c, c_p, h, k, input,owner, tokenId);
+            require(!_isFound,"duplicated proof");
+
+            //then allow to mint
             super.mint(owner, tokenId, tokenURI);
+
+            //now add to solution
+            addSolution(a, a_p, b, b_p, c, c_p, h, k, input,owner, tokenId);
             
     //  - make sure you handle metadata as well as tokenSuplly
 
